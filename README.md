@@ -9,3 +9,10 @@ O Arquivo CSV tem o nome de **BOT-Horas-para-lancar** e contém as seguintes col
 1. 4
 1. 5
 1. 6
+
+---
+
+Dependencias (falta terminar de descrever exatamente para que cada coisa serve):
+
+* pip install selenium
+* pip install cx_freeze (para gerar .exe)
