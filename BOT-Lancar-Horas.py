@@ -9,7 +9,7 @@ print("--=== Informe o seu login no Redmine ===--")
 user = input("Username: ")
 password = getpass()
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome("./chromedriver")
 browser.get('https://redmine.expressosaomiguel.com.br/redmine/projects?jump=welcome')
 browser.maximize_window()
 

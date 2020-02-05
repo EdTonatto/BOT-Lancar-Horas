@@ -19,7 +19,7 @@ buildOptions = dict(
 
 setup(
     name = "BOT Lançamento de Horas",
-    version = "1.0",
+    version = "1.1",
     description = "BOT Lançamento de Horas",
     options = dict(build_exe = buildOptions),
     executables = executables
