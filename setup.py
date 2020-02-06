@@ -7,7 +7,7 @@ if sys.platform == "win32":
     base = "Console"
 
 executables = [
-        Executable("BOT-Lancar-Horas.py", base=base)
+        Executable("BOT-Lancar-Horas.py", base=base, icon="BOT-Lancar-Horas_Icone.ico")
 ]
 
 buildOptions = dict(

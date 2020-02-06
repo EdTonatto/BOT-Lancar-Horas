@@ -5,13 +5,14 @@
 ;#include ReadReg(HKEY_LOCAL_MACHINE,'Software\Sherlock Software\InnoTools\Downloader','ScriptPath','')
 #define MyAppName "BOT Lançamento de Horas"
 #define MyAppVersion "1.1"
-#define MyAppPublisher "Expresso São Miguel Ltda."
-#define MyAppURL "http://www.expressosaomiguel.com.br"
-#define MyAppExeName "Matriz"
+#define MyAppPublisher "Eduardo Tonatto"
+#define MyAppURL ""
+#define MyAppExeName "BOT-Lancar-Horas"
+#define MyAppIcoName "BOT-Lancar-Horas_Icone.ico"
 
 [Setup]
 
-AppId={{690294A7-47CE-4DE7-BB74-C1E8326EEB5A}
+AppId={{584A01DB-3EC0-4209-909D-9F74CD49ACBC}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
@@ -20,18 +21,18 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 PrivilegesRequired=admin
-DefaultDirName={pf}\Expresso Sao Miguel\Matriz
+DefaultDirName={pf}\BOT-Lancar-Horas
 DisableDirPage=true
-DefaultGroupName=Matriz
+DefaultGroupName=BOTLancarHoras
 DisableProgramGroupPage=true
-OutputDir=C:\INSTALADOR\Projeto - Compilador
+OutputDir=.\..\Instaladores
 OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.1
 VersionInfoVersion=1
-SetupIconFile=C:\INSTALADOR\Projeto - Compilador\BOT-Lancar-Horas_Icone.ico
+SetupIconFile=.\..\..\BOT-Lancar-Horas_Icone.ico
 Compression=lzma
 SolidCompression=true
-WizardImageFile=C:\INSTALADOR\Projeto - Arquivos\Logos\Nova Logo.bmp
-WizardSmallImageFile=C:\INSTALADOR\Projeto - Arquivos\Logos\ICONE_TMS_logo_direito.bmp
+WizardImageFile=.\..\Pasta Arquivos\WizardImageFile.bmp
+WizardSmallImageFile=.\..\Pasta Arquivos\WizardSmallImageFile.bmp
 Password=
 DisableStartupPrompt=true
 UsePreviousSetupType=false
@@ -54,58 +55,39 @@ Name: brazilianportuguese; MessagesFile: compiler:Languages\BrazilianPortuguese.
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checkedonce
 
-[Files]
-;Backup
+[Files]   
+Source: ..\..\build\exe.win32-3.8\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ..\..\BOT-Lancar-Horas_Icone.ico; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
+Source: ..\..\BOT-Horas-para-lancar.csv; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
+Source: ..\..\drivers\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\drivers\; Flags: ignoreversion
 
-;Arquivos novos
-
-Source: ..\Projeto - Arquivos\BOT-Lancar-Horas\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
-Source: ..\Projeto - Arquivos\BOT-Lancar-Horas\lib\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\lib\; Flags: ignoreversion recursesubdirs createallsubdirs
-
-;Source: ..\Projeto - Arquivos\FaturamentoAut\*; DestDir: {sd}\banco\Servidor\FaturamentoAutomatico\; Check: MyProgCheckServidor; Flags: ignoreversion; Languages:
-
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\*; DestDir: D:\Matriz\Ajuda; Check: MyProgCheckFiliaisD; Flags: ignoreversion                 
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\Imagens\*; DestDir: D:\Matriz\Ajuda\Imagens; Check: MyProgCheckFiliaisD; Flags: ignoreversion
-
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\*; DestDir: {sd}\EXE\Ajuda; Check: MyProgCheckServidor; Flags: ignoreversion                 
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\Imagens\*; DestDir: {sd}\EXE\Ajuda\Imagens; Check: MyProgCheckServidor; Flags: ignoreversion
-
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\*; DestDir: E:\Matriz\Ajuda; Check: MyProgCheckFiliaisE; Flags: ignoreversion                 
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\Imagens\*; DestDir: E:\Matriz\Ajuda\Imagens; Check: MyProgCheckFiliaisE; Flags: ignoreversion
-
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\*; DestDir: {sd}\Program Files (x86)\Expresso Sao Miguel\Matriz\Ajuda; Check: MyProgCheckFiliaisC; Flags: ignoreversion                 
-;Source: ..\Projeto - Arquivos\Ajuda_ERP\Imagens\*; DestDir: {sd}\Program Files (x86)\Expresso Sao Miguel\Matriz\Ajuda\Imagens; Check: MyProgCheckFiliaisC; Flags: ignoreversion
+[Icons]
+Name: "\{#MyAppName}"; Filename: "\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyAppIcoName}"; Tasks: desktopicon
 
 [Registry]
 Root: HKLM; Subkey: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System; ValueType: dword; ValueName: EnableLUA; ValueData: 0; Flags: noerror
 
 [Code]
 procedure InitializeWizard();
-var
-  ErrorCode: Integer;
 begin
-	//Antes de iniciar o instalador finaliza os processo.
+	//Antes de iniciar o instalador.
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
-var
-  ErrorCode: Integer;
-	count: integer;
 begin
-	//No inicio da instalação fecha as sessões em aberto.
+	//Inicio da instalação.
 	if CurStep = ssInstall then 
   begin
 
 	end;
 	
-	//No final da instalação executa os bats que abre os APPs.
+	//Final da instalação.
   if CurStep = ssPostInstall then 
   begin
 
   end;
 end;
-
-//Funções para validar se é o Servidor Matriz ou filiais para a transferência dos arquivos.
 
 
 
