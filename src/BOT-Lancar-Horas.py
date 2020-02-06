@@ -1,6 +1,7 @@
 import csv
 import time
 import string
+import os
 from getpass import getpass
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -17,6 +18,19 @@ browser.maximize_window()
 fieldUser = browser.find_element_by_xpath("//*[@id='username']").send_keys(user)
 fieldPassword = browser.find_element_by_xpath("//*[@id='password']").send_keys(password)
 btnLogin = browser.find_element_by_xpath("//*[@id='login-submit']").click()
+
+try:
+	loginErrorElement = browser.find_element_by_xpath("//*[@id='flash_error']")
+except: #selenium.common.exceptions.NoSuchElementException
+	loginErrorElement = None
+	
+if loginErrorElement:
+	os.system('cls' if os.name == 'nt' else 'clear')
+	browser.quit()
+	print("Houveram problemas ao realizar login. Por favor verifique seu usuário/senha!")
+	input("Pressione enter para finalizar a execução do BOT...")
+	exit()
+
 btnTempoGasto = browser.find_element_by_xpath("//*[@id='main-menu']/ul/li[4]/a").click()
 btnTempoTrabalho = browser.find_element_by_xpath("//*[@id='content']/div[1]/a").click()
 
