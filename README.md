@@ -15,3 +15,4 @@ Dependencias (falta terminar de descrever exatamente para que cada coisa serve):
 
 * pip install selenium
 * pip install cx_freeze (para gerar .exe)
+* Inno Setup (pra gerar instalador)
