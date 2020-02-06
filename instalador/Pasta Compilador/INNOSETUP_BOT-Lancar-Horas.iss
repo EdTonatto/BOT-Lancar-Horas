@@ -28,7 +28,7 @@ DisableProgramGroupPage=true
 OutputDir=.\..\Instaladores
 OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.2
 VersionInfoVersion=1
-SetupIconFile=.\..\..\BOT-Lancar-Horas_Icone.ico
+SetupIconFile=.\..\Pasta Arquivos\BOT-Lancar-Horas_Icone.ico
 Compression=lzma
 SolidCompression=true
 WizardImageFile=.\..\Pasta Arquivos\WizardImageFile.bmp
@@ -56,10 +56,10 @@ Name: brazilianportuguese; MessagesFile: compiler:Languages\BrazilianPortuguese.
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checkedonce
 
 [Files]   
-Source: ..\..\build\exe.win32-3.8\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: ..\..\BOT-Lancar-Horas_Icone.ico; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
-Source: ..\..\BOT-Horas-para-lancar.csv; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Check: checkCSVExistance; Flags: ignoreversion
-Source: ..\..\drivers\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\drivers\; Flags: ignoreversion
+Source: ..\..\build\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ..\Pasta Arquivos\BOT-Lancar-Horas_Icone.ico; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
+Source: ..\..\src\BOT-Horas-para-lancar.csv; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Check: checkCSVExistance; Flags: ignoreversion
+Source: ..\..\src\drivers\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\drivers\; Flags: ignoreversion
 
 [Icons]
 Name: "\{#MyAppName}"; Filename: "\{#MyAppExeName}"; Tasks: desktopicon
