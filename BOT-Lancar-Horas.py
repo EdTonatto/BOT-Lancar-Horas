@@ -1,5 +1,6 @@
 import csv
 import time
+import string
 from getpass import getpass
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -35,6 +36,8 @@ with open('BOT-Horas-para-lancar.csv', 'r', encoding="utf8") as csvFile:
 
 		#Printando informação para conferencia após execução
 		print(data)
+
+		fieldIssue.clear()
 
 		#Seleção do Projeto
 		selectProject = Select(fieldProjeto)

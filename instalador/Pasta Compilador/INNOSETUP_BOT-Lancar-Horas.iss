@@ -4,7 +4,7 @@
 
 ;#include ReadReg(HKEY_LOCAL_MACHINE,'Software\Sherlock Software\InnoTools\Downloader','ScriptPath','')
 #define MyAppName "BOT Lançamento de Horas"
-#define MyAppVersion "1.1"
+#define MyAppVersion "1.2"
 #define MyAppPublisher "Eduardo Tonatto"
 #define MyAppURL ""
 #define MyAppExeName "BOT-Lancar-Horas"
@@ -26,7 +26,7 @@ DisableDirPage=true
 DefaultGroupName=BOTLancarHoras
 DisableProgramGroupPage=true
 OutputDir=.\..\Instaladores
-OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.1
+OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.2
 VersionInfoVersion=1
 SetupIconFile=.\..\..\BOT-Lancar-Horas_Icone.ico
 Compression=lzma
@@ -58,7 +58,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]   
 Source: ..\..\build\exe.win32-3.8\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: ..\..\BOT-Lancar-Horas_Icone.ico; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
-Source: ..\..\BOT-Horas-para-lancar.csv; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Flags: ignoreversion
+Source: ..\..\BOT-Horas-para-lancar.csv; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\; Check: checkCSVExistance; Flags: ignoreversion
 Source: ..\..\drivers\*; DestDir: {sd}\Program Files (x86)\BOT-Lancar-Horas\drivers\; Flags: ignoreversion
 
 [Icons]
@@ -89,6 +89,17 @@ begin
   end;
 end;
 
+function checkCSVExistance(): Boolean;
+var
+  MyProgChecked: Boolean;
+begin
+  MyProgChecked := True
+  if(FileExists('C:\Program Files (x86)\BOT-Lancar-Horas\BOT-Horas-para-lancar.csv'))then 
+	begin
+    MyProgChecked := False;
+  end;
+	Result := MyProgChecked;
+end;
 
 
 
