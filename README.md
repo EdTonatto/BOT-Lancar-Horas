@@ -13,6 +13,23 @@ O Arquivo CSV tem o nome de **BOT-Horas-para-lancar** e contém as seguintes col
 
 Dependencias (falta terminar de descrever exatamente para que cada coisa serve):
 
-* pip install selenium
-* pip install cx_freeze (para gerar .exe)
-* Inno Setup (pra gerar instalador)
+1. [Selenium](https://selenium.dev/):
+   - Para instalar basta rodar o comando `pip install selenium` no terminal.
+   - É através do Selenium que é possível controlar um navegador (neste caso, Chrome) utilizando Python, está sendo utilizado no momento para:
+     - Iniciar uma nova janela do navegador.
+     - Mapear campos que estão aparecendo no site.
+     - Enviar dados (I/O) para preencher campos.
+     - Clique em botões mapeados.
+   - Para visualizar a página da biblioteca no PyPI clique [aqui](https://pypi.org/project/selenium/).
+   - Para visualizar a documentação do Selenium basta clicar [aqui](https://selenium.dev/documentation/en/).
+1. [cx_Freeze](https://anthony-tuininga.github.io/cx_Freeze/):
+   - Para instalar basta rodar o comando `pip install cx_Freeze` no terminal.
+   - O cx_Freeze é utilizado para "congelar" os códigos em Python, para isso é utilziado o arquivo [setup.py](./instalador/Pasta%20Compilador/setup.py) que contem configurações a respeito do executável que será gerado, bem como:
+     - Caminho para qual arquivo se tornará um executável.
+     - Ícone que será atribuido ao executável.
+     - Dependencias de bibliotecas que devem ser anexadas à pasta lib junto ao executável.
+     - Configurações de nome, descrição e versionamento.
+   - Para gerar o executável é necessário executar o [setup.py](./instalador/Pasta%20Compilador/setup.py) da seguinte maneira: `python setup.py build`.
+   - Para visualizar a documentação do cx_Freeze basta clicar [aqui](https://cx-freeze.readthedocs.io/en/latest/index.html).
+1. Inno Setup (pra gerar instalador) **NECESSÁRIO COMPLEMENTAR INFORMAÇOES**
+
