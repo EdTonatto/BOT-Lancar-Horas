@@ -11,7 +11,7 @@ O Arquivo CSV tem o nome de **BOT-Horas-para-lancar** e contém as seguintes col
 
 ---
 
-Dependencias (falta terminar de descrever exatamente para que cada coisa serve):
+**Dependências para desenvolvimento do BOT**:
 
 1. [Selenium](https://selenium.dev/):
    - Para instalar basta rodar o comando `pip install selenium` no terminal.
