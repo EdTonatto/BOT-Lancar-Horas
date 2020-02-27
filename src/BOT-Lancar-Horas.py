@@ -81,7 +81,7 @@ with open('BOT-Horas-para-lancar.csv', 'r', encoding="utf8") as csvFile:
 				selectActivity.select_by_visible_text(option.text)
 				break
 			else:
-				selectActivity.select_by_visible_text('Atividade')
+				selectActivity.select_by_visible_text('Outros')
 
 		#Gerar lançamento e iniciar próximo
 		btnCreateAndGo.click()

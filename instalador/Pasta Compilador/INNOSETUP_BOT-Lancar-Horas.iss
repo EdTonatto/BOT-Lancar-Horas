@@ -1,5 +1,5 @@
 #define MyAppName "BOT Lançamento de Horas"
-#define MyAppVersion "1.2"
+#define MyAppVersion "1.3"
 #define MyAppPublisher "Eduardo Tonatto"
 #define MyAppURL ""
 #define MyAppExeName "BOT-Lancar-Horas"
@@ -21,7 +21,7 @@ DisableDirPage=true
 DefaultGroupName=BOTLancarHoras
 DisableProgramGroupPage=true
 OutputDir=.\..\Instaladores
-OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.2
+OutputBaseFilename=Instalador_BOT-Lancar-Horas_1.3
 VersionInfoVersion=1
 SetupIconFile=.\..\Pasta Arquivos\BOT-Lancar-Horas_Icone.ico
 Compression=lzma
